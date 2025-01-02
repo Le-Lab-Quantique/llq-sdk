@@ -11,6 +11,7 @@ on:
       - "main"
   release:
     types: [published]
+  workflow_dispatch:
 
 jobs:
   build:
@@ -43,13 +44,13 @@ jobs:
 
   publish:
     name: Publish Python Distribution to PyPI
-    if: github.event_name == 'release'
+    if: github.event_name == 'release' || startsWith(github.ref, 'refs/tags/v')
     needs:
       - build
     runs-on: ubuntu-latest
     environment:
       name: pypi
-      url: https://pypi.org/p/pyosmeta
+      url: https://pypi.org/p/llq-sdk
     permissions:
       id-token: write
     steps:
@@ -67,7 +68,7 @@ jobs:
 
   sign-files:
     name: Sign and Upload Python Distribution with Sigstore
-    if: github.event_name == 'release'
+    if: github.event_name == 'release' || startsWith(github.ref, 'refs/tags/v')
     needs:
       - publish
     runs-on: ubuntu-latest
