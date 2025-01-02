@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.0.3 - 2025-01-02
+#### Continuous Integration
+- allow manual trigger - (f2d2def) - Angel Dijoux
+
+- - -
+
 ## v0.0.2 - 2025-01-02
 #### Continuous Integration
 - following pypi rules for building - (d7c9d5f) - Angel Dijoux
