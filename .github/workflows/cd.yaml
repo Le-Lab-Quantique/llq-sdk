@@ -13,9 +13,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    environment:
-      name: pypi
-      url: https://pypi.org/p/llq-sdk
+    environment: pypi
     permissions:
       contents: read
       packages: write
