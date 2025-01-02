@@ -1,4 +1,4 @@
-name: "Build and Push to PyPI"
+name: "Build, Sign, and Publish to PyPI"
 
 on:
   push:
@@ -9,36 +9,87 @@ on:
   pull_request:
     branches:
       - "main"
+  release:
+    types: [published]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     environment:
-      name: pypi
-      url: https://pypi.org/p/llq-sdk
-    permissions:
-      contents: read
-      packages: write
-      id-token: write
+      name: build
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 100
 
-      - name: Install uv
+      - name: Fetch git tags
+        run: git fetch origin 'refs/tags/*:refs/tags/*'
+
+      - name: Install UV
         uses: astral-sh/setup-uv@v2
 
-      - name: Set up Python
+      - name: Set up Python using UV
         run: uv python install
 
-      - name: Build package
+      - name: Build package using UV
         run: uv build
 
-      - name: Publish package distributions to TestPyPI
+      - name: Store the distribution packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-package-distributions
+          path: dist/
+
+  publish:
+    name: Publish Python Distribution to PyPI
+    if: github.event_name == 'release'
+    needs:
+      - build
+    runs-on: ubuntu-latest
+    environment:
+      name: pypi
+      url: https://pypi.org/p/pyosmeta
+    permissions:
+      id-token: write
+    steps:
+      - name: Download the distribution packages
+        uses: actions/download-artifact@v4
+        with:
+          name: python-package-distributions
+          path: dist/
+
+      - name: Publish package to PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
         with:
           skip-existing: true
-          repository-url: https://test.pypi.org/legacy/
+          repository-url: https://pypi.org/legacy/
 
-      - name: Publish package distributions to PyPI
-        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags')
-        uses: pypa/gh-action-pypi-publish@release/v1
+  sign-files:
+    name: Sign and Upload Python Distribution with Sigstore
+    if: github.event_name == 'release'
+    needs:
+      - publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      id-token: write
+    steps:
+      - name: Download the distribution packages
+        uses: actions/download-artifact@v4
+        with:
+          name: python-package-distributions
+          path: dist/
+
+      - name: Sign the distributions with Sigstore
+        uses: sigstore/gh-action-sigstore-python@v2.1.1
+        with:
+          inputs: >
+            ./dist/*.tar.gz
+            ./dist/*.whl
+
+      - name: Upload artifact signatures to GitHub Release
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          gh release upload '${{ github.ref_name }}' dist/** --repo '${{ github.repository }}'
