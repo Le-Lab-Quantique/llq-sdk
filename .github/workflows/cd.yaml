@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: pypi
-      url: https://pypi.org/p/q3as
+      url: https://pypi.org/p/llq-sdk
     permissions:
       contents: read
       packages: write
