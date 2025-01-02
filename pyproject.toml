@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "llq-sdk"
-version = "0.0.1"
+version = "0.0.4"
 description = "Add your description here"
 readme = "README.md"
 classifiers = []

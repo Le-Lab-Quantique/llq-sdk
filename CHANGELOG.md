@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.0.4 - 2025-01-02
+#### Continuous Integration
+- based more on pipy gh action exemple? - (2ad57c1) - Angel Dijoux
+
+- - -
+
 ## v0.0.3 - 2025-01-02
 #### Continuous Integration
 - allow manual trigger - (f2d2def) - Angel Dijoux
