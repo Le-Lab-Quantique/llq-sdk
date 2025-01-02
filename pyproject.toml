@@ -4,17 +4,17 @@ build-backend = "hatchling.build"
 
 [project]
 name = "llq-sdk"
-version = "0.0.1"
+version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 classifiers = []
 requires-python = ">=3.11"
 authors = [{ name = "Angel Dijoux", email = "angel.dijoux@yahoo.com" }]
 dependencies = [
-    "gql[aiohttp]>=3.5.0",
-    "inflection>=0.5.1",
-    "sgqlc>=16.4",
-    "uuid-utils>=0.10.0",
+  "gql[aiohttp]>=3.5.0",
+  "inflection>=0.5.1",
+  "sgqlc>=16.4",
+  "uuid-utils>=0.10.0",
 ]
 license = { file = "LICENSE" }
 
