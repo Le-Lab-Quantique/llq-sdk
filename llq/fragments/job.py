@@ -18,13 +18,13 @@ class JobFragment(FragmentBuilder[JobAcf]):
         job_acf = fragment.job_acf()
         job_acf.__fragment__(self._job_acf_fragment())
 
-        occupation_kind_nodes = fragment.occupation_kinds().nodes
+        occupation_kind_nodes = fragment.occupationkinds().nodes
         occupation_kind_nodes.__fragment__(self.occupation_kind_fragment())
 
-        job_mode_nodes = fragment.job_modes().nodes
+        job_mode_nodes = fragment.jobmodes().nodes
         job_mode_nodes.__fragment__(self.job_mode_fragment())
 
-        contract_kind_nodes = fragment.contract_kinds().nodes
+        contract_kind_nodes = fragment.contractkinds().nodes
         contract_kind_nodes.__fragment__(self.contract_kind_fragment())
 
         return fragment
