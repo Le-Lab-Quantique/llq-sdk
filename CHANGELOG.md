@@ -2,6 +2,14 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.0.2 - 2025-01-05
+#### Bug Fixes
+- **(ci)** package name - (7142481) - Angel Dijoux
+#### Miscellaneous Chores
+- add fields in job frag & edit next event where param - (3c6a16d) - Angel Dijoux
+
+- - -
+
 ## v0.0.1 - 2025-01-02
 #### Continuous Integration
 - based more on pipy gh action exemple? - (2ad57c1) - Angel Dijoux
