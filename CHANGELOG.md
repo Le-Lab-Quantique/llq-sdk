@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.0.6 - 2025-01-05
+#### Bug Fixes
+- job id not found in job mutations - (c3d081f) - Angel Dijoux
+
+- - -
+
 ## v0.0.5 - 2025-01-05
 #### Bug Fixes
 - job fragment wording - (b6449bd) - Angel Dijoux
