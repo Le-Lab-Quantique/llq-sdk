@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.0.3 - 2025-01-05
+#### Bug Fixes
+- job acf fragment & remove testpypi in ci - (6d7082c) - Angel Dijoux
+
+- - -
+
 ## v0.0.2 - 2025-01-05
 #### Bug Fixes
 - **(ci)** package name - (7142481) - Angel Dijoux
