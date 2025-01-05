@@ -99,7 +99,7 @@ class UpdateJobStatusMutation(BaseOperationBuilder):
         op = Operation(RootMutation, name="update_job_mutation")
         job = op.update_job(
             input={
-                "id": job_id,
+                "id": id,
                 "status": status,
                 "ignore_edit_lock": True,
             }
@@ -142,7 +142,7 @@ class DeleteJobMutation(BaseOperationBuilder):
         op = Operation(RootMutation, name="update_job_mutation")
         job = op.delete_job(
             input={
-                "id": job_id,
+                "id": id,
                 "ignore_edit_lock": True,
                 "force_delete": True,
             }
