@@ -34,7 +34,7 @@ class EventByStartDateQuery(BaseOperationBuilder):
     A builder for event-related GraphQL queries.
     """
 
-    def get(self, first: Int, start_date: DateQueryInput) -> Operation:
+    def get(self, first: Int, date: DateQueryInput) -> Operation:
         """
         Build a GraphQL query to fetch the next events.
 
@@ -47,7 +47,7 @@ class EventByStartDateQuery(BaseOperationBuilder):
         events = op.events(
             first=first,
             where={
-                "start_date_query": start_date,
+                "date_query": date,
                 "order_by": {
                     "field": PostObjectsConnectionOrderbyEnum.DATE,
                     "order": OrderEnum.ASC,

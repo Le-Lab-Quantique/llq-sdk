@@ -44,18 +44,21 @@ class JobFragment(FragmentBuilder[JobAcf]):
 
     def occupation_kind_fragment(self) -> Fragment:
         fragment = Fragment(Occupationkind, "OccupationKindFragment")
+        fragment.id()
         fragment.uri()
         fragment.name()
         return fragment
 
     def job_mode_fragment(self) -> Fragment:
         fragment = Fragment(Jobmode, "JobModeFragment")
+        fragment.id()
         fragment.uri()
         fragment.name()
         return fragment
 
     def contract_kind_fragment(self) -> Fragment:
         fragment = Fragment(ContractKind, "ContractKindFragment")
+        fragment.id()
         fragment.uri()
         fragment.name()
         return fragment
