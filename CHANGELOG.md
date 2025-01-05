@@ -2,6 +2,12 @@
 All notable changes to this project will be documented in this file. See [conventional commits](https://www.conventionalcommits.org/) for commit guidelines.
 
 - - -
+## v0.0.5 - 2025-01-05
+#### Bug Fixes
+- job fragment wording - (b6449bd) - Angel Dijoux
+
+- - -
+
 ## v0.0.4 - 2025-01-05
 #### Documentation
 - add a quick exemple - (c5a856f) - Angel Dijoux
