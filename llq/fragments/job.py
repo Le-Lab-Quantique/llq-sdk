@@ -18,10 +18,6 @@ class JobFragment(FragmentBuilder[JobAcf]):
         job_acf = fragment.job_acf()
         job_acf.__fragment__(self._job_acf_fragment())
 
-        image_node = fragment.compagny_logo().node
-        media_item_frag = MediaItemFragment().get()
-        image_node.__fragment__(media_item_frag)
-
         occupation_kind_nodes = fragment.occupation_kinds().nodes
         occupation_kind_nodes.__fragment__(self.occupation_kind_fragment())
 
@@ -39,6 +35,10 @@ class JobFragment(FragmentBuilder[JobAcf]):
         fragment.compagny_name()
         fragment.localization()
         fragment.apply_link()
+
+        image_node = fragment.compagny_logo().node
+        media_item_frag = MediaItemFragment().get()
+        image_node.__fragment__(media_item_frag)
 
         return fragment
 
